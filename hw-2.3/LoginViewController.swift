@@ -26,6 +26,8 @@ class LoginViewController: UIViewController {
             passwordTF.text = ""
             return
         }
+            performSegue(withIdentifier: "welcomeVCSegue", sender: nil)
+        print("WWWW")
     }
     
     @IBAction func usernameHelpButton() {
@@ -57,12 +59,12 @@ extension LoginViewController: UITextFieldDelegate {
         view.endEditing(true)
     }
     
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        if textField == usernameTF {
-//            passwordTF.becomeFirstResponder()
-//        } else {
-//            logInPressed()
-//        }
-//        return true
-//    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == usernameTF {
+            passwordTF.becomeFirstResponder()
+        } else {
+            loginButtonPressed()
+        }
+        return true
+    }
 }
